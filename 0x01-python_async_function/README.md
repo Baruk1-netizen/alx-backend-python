@@ -29,5 +29,4 @@ This module extends the concept of asyncio tasks. It alters the `wait_n` functio
 
 This repository contains the implementation of the concepts outlined above, providing a hands-on approach to learning asynchronous programming in Python.
 
-##AUTHOR
-@Baruk1-netizen
+
