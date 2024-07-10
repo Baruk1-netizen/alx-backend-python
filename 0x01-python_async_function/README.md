@@ -1,81 +1,32 @@
-# 0x01. Python - Async
+# Async Python Functions
 
-## Overview
-This project focuses on asynchronous programming in Python, specifically using the `asyncio` library. It covers the basics of `async` and `await` syntax, how to run concurrent coroutines, create asyncio tasks, and utilize the `random` module. 
+This repository demonstrates the basics of asynchronous programming in Python using the `asyncio` library. Below is a detailed description of each module and its functionality.
 
-## Learning Objectives
-By the end of this project, you should be able to:
-- Understand `async` and `await` syntax.
-- Execute an async program with `asyncio`.
-- Run concurrent coroutines.
-- Create `asyncio` tasks.
-- Use the `random` module effectively.
+## 0. The Basics of Async
 
-## Resources
-- [Async IO in Python: A Complete Walkthrough](https://realpython.com/async-io-python/)
-- [asyncio - Asynchronous I/O](https://docs.python.org/3/library/asyncio.html)
-- [random.uniform](https://docs.python.org/3/library/random.html#random.uniform)
+This module introduces the concept of asynchronous coroutines. It contains a coroutine named `wait_random` that takes an integer argument `max_delay` (default value of 10). The coroutine waits for a random delay between 0 and `max_delay` seconds and then returns the actual delay.
 
-## Requirements
-- A `README.md` file at the root of the project folder is mandatory.
-- Allowed editors: `vi`, `vim`, `emacs`.
-- All files will be interpreted/compiled on Ubuntu 18.04 LTS using `python3` (version 3.7).
-- All files should end with a new line and must be executable.
-- Code should follow the `pycodestyle` style (version 2.5.x).
-- Functions and coroutines must be type-annotated.
-- Modules and functions should have documentation.
+## 1. Execute Multiple Coroutines Simultaneously
 
-## Project Tasks
+This module demonstrates running multiple coroutines concurrently. It imports the `wait_random` coroutine from the previous module and defines an async routine called `wait_n`. This routine takes two integer arguments, `n` and `max_delay`, and spawns `wait_random` `n` times with the specified `max_delay`. It returns a list of all the delays in ascending order.
 
-### Task 0: The basics of async
-Write an asynchronous coroutine `wait_random` that takes an integer argument `max_delay` (default value 10) and waits for a random delay between 0 and `max_delay` seconds before returning it.
+## 2. Measure the Runtime
 
-**File**: `0-basic_async_syntax.py`
+This module focuses on measuring the execution time of concurrent coroutines. It imports the `wait_n` coroutine and defines a function `measure_time` that takes integers `n` and `max_delay` as arguments. This function measures the total execution time for `wait_n(n, max_delay)` and returns the average time per coroutine.
 
-### Task 1: Let's execute multiple coroutines at the same time with async
-Write an async routine `wait_n` that takes two int arguments `n` and `max_delay`. It spawns `wait_random` `n` times with the specified `max_delay` and returns the list of all delays in ascending order.
+## 3. Tasks
 
-**File**: `1-concurrent_coroutines.py`
+This module explores creating asyncio tasks. It imports the `wait_random` coroutine and defines a function `task_wait_random` that takes an integer `max_delay` and returns an `asyncio.Task` object.
 
-### Task 2: Measure the runtime
-Create a `measure_time` function with integers `n` and `max_delay` as arguments that measures the total execution time for `wait_n(n, max_delay)`, and returns `total_time / n`.
+## 4. Tasks (Extended)
 
-**File**: `2-measure_runtime.py`
-
-### Task 3: Tasks
-Write a function `task_wait_random` that takes an integer `max_delay` and returns an `asyncio.Task`.
-
-**File**: `3-tasks.py`
-
-### Task 4: Tasks
-Alter the code from `wait_n` into a new function `task_wait_n`. The code is nearly identical to `wait_n` except `task_wait_random` is being called.
-
-**File**: `4-tasks.py`
+This module extends the concept of asyncio tasks. It alters the `wait_n` function to create a new function `task_wait_n`, which uses `task_wait_random` to create tasks instead of directly awaiting coroutines. The functionality is similar to `wait_n` but leverages tasks for concurrency.
 
 ## Repository
-- **GitHub Repository**: `alx-backend-python`
+
+- **GitHub repository**: `alx-backend-python`
 - **Directory**: `0x01-python_async_function`
 
-## Usage
-To run the provided examples, you can use the following commands in your terminal:
+This repository contains the implementation of the concepts outlined above, providing a hands-on approach to learning asynchronous programming in Python.
 
-```sh
-# Task 0
-python3 0-main.py
 
-# Task 1
-python3 1-main.py
-
-# Task 2
-python3 2-main.py
-
-# Task 3
-python3 3-main.py
-
-# Task 4
-python3 4-main.py
-```
-
-## Author
-
-- **@waltertaya**
