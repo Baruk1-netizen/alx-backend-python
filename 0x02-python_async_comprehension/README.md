@@ -120,6 +120,3 @@ print(
   - `2-measure_runtime.py`
 
 
-## Authors
-
-- **@waltertaya**
